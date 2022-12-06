@@ -8,7 +8,7 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1 class="m-0">категории</h1>
+                <h1 class="m-0">теги</h1>
             </div><!-- /.col -->
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
@@ -28,7 +28,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <a href="{{route('category.create')}}" class="btn btn-primary">Добавить</a>
+                        <a href="{{route('tag.create')}}" class="btn btn-primary">Добавить</a>
                     </div>
 
                     <div class="card-body table-responsive p-0">
@@ -40,10 +40,10 @@
                                 </tr>
                             </thead>
                             <tbody>
-                              @foreach($categories as $category)
+                              @foreach($tags as $tag)
                                 <tr>
-                                    <td>{{$category->id}}</td>
-                                    <td><a href="{{ route('category.show', $category->id) }}">{{$category->title}}</a></td>
+                                    <td>{{$tag->id}}</td>
+                                    <td><a href="{{ route('tag.show', $tag->id) }}">{{$tag->title}}</a></td>
                                 </tr>
                               @endforeach 
                             </tbody> 

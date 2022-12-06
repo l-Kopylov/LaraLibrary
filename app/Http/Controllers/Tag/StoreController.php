@@ -1,20 +1,20 @@
 <?php
 
-namespace App\Http\Controllers\Category;
+namespace App\Http\Controllers\Tag;
 
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Category;
-use App\Http\Requests\Category\StoreRequest;
+use App\Models\Tag;
+use App\Http\Requests\Tag\StoreRequest;
 
 class StoreController extends Controller
 {
     public function __invoke(StoreRequest $request)
     {
         $data = $request->validated();
-        Category::firstOrCreate($data);
+        Tag::firstOrCreate($data);
 
-        return redirect()->route('category.index');
+        return redirect()->route('tag.index');
     }
 }

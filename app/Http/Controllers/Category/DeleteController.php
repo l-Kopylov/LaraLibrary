@@ -6,9 +6,10 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Category;
 
+
 class DeleteController extends Controller
 {
-    public function __invoke(UpdateRequest $request, Category $category)
+    public function __invoke(Category $category)
     {
         $category->delete();
 
