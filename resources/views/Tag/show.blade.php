@@ -31,6 +31,9 @@
                       <div class="mr-3">
                         <a href="{{route('tag.edit', $tag->id)}}" class="btn btn-primary">редактировать</a>
                       </div>
+                      <div div class="mr-3">
+                            <a href="{{route('tag.index')}}" class="btn btn-info">вернуться в список</a>
+                        </div>
                       <form action="{{route('tag.delete', $tag->id)}}" method="post">
                         @csrf
                         @method('delete')

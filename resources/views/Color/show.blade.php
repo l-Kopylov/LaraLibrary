@@ -31,6 +31,9 @@
                       <div class="mr-3">
                         <a href="{{route('color.edit', $color->id)}}" class="btn btn-primary">редактировать</a>
                       </div>
+                      <div div class="mr-3">
+                            <a href="{{route('color.index')}}" class="btn btn-info">вернуться в список</a>
+                        </div>
                       <form action="{{route('color.delete', $color->id)}}" method="post">
                         @csrf
                         @method('delete')

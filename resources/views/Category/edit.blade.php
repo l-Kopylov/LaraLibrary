@@ -34,6 +34,7 @@
                 <div class="form-group">
                     <input type="submit" class="btn btn-primary" value="редактировать">
                 </div>
+              
             </form>
 
         </div><!-- /.container-fluid -->

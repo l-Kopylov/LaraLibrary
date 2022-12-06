@@ -3,24 +3,24 @@
 
 @section('content')
 
-     <!-- Content Header (Page header) -->
-     <div class="content-header">
-      <div class="container-fluid">
+<!-- Content Header (Page header) -->
+<div class="content-header">
+    <div class="container-fluid">
         <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1 class="m-0">Категория</h1>
-          </div><!-- /.col -->
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Dashboard v1</li>
-            </ol>
-          </div><!-- /.col -->
+            <div class="col-sm-6">
+                <h1 class="m-0">Категория</h1>
+            </div><!-- /.col -->
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item active">Dashboard v1</li>
+                </ol>
+            </div><!-- /.col -->
         </div><!-- /.row -->
-      </div><!-- /.container-fluid -->
-    </div>
-    <!-- /.content-header -->
-    <!-- Main content -->
+    </div><!-- /.container-fluid -->
+</div>
+<!-- /.content-header -->
+<!-- Main content -->
 <section class="content">
     <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
@@ -28,14 +28,18 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header d-flex">
-                      <div class="mr-3">
-                        <a href="{{route('category.edit', $category->id)}}" class="btn btn-primary">редактировать</a>
-                      </div>
-                      <form action="{{route('category.delete', $category->id)}}" method="post">
-                        @csrf
-                        @method('delete')
-                        <input type="submit" class="btn btn-danger" value="удалить">
-                      </form>
+                        <div class="mr-3">
+                            <a href="{{route('category.edit', $category->id)}}"
+                                class="btn btn-primary">редактировать</a>
+                        </div>
+                        <div div class="mr-3">
+                            <a href="{{route('category.index')}}" class="btn btn-info">вернуться в список</a>
+                        </div>
+                        <form action="{{route('category.delete', $category->id)}}" method="post">
+                            @csrf
+                            @method('delete')
+                            <input type="submit" class="btn btn-danger" value="удалить">
+                        </form>
                     </div>
 
                     <div class="card-body table-responsive p-0">
@@ -44,12 +48,12 @@
                                 <tr>
                                     <td>ID</td>
                                     <td>{{$category->id}}</a></td>
-                                </tr> 
+                                </tr>
                                 <tr>
                                     <td>наименование</td>
                                     <td>{{$category->title}}</a></td>
-                                </tr> 
-                            </tbody> 
+                                </tr>
+                            </tbody>
                         </table>
                     </div>
 
