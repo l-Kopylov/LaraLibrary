@@ -7,8 +7,10 @@
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="{{asset('adminlte/plugins/fontawesome-free/css/all.min.css') }}">
+
+  <!-- Select2 -->
+  <link rel="stylesheet" href="{{asset('adminlte/plugins/select2/css/select2.min.css')}}">
+  <link rel="stylesheet" href="{{asset('adminlte/plugins/fontawesome-free/css/all.min.css')}}">
   <!-- Theme style -->
   <link rel="stylesheet" href="{{asset('adminlte/dist/css/adminlte.min.css')}}">
   <!-- overlayScrollbars -->
@@ -277,6 +279,7 @@
 
 <!-- jQuery -->
 <script src="{{asset('adminlte/plugins/jquery/jquery.min.js')}}"></script>
+
 <!-- jQuery UI 1.11.4 -->
 <script src="{{asset('adminlte/plugins/jquery-ui/jquery-ui.min.js')}}"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
@@ -290,6 +293,12 @@
 <script src="{{asset('adminlte/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')}}"></script>
 <!-- AdminLTE App -->
 <script src="{{asset('adminlte/dist/js/adminlte.js')}}"></script>
+<!-- Select2 -->
+<script src="{{asset('adminlte/plugins/select2/js/select2.full.min.js')}}"></script>
+<script>
+  $('.tags').select2()
+  $('.colors').select2()
+</script>
 
 </body>
 </html>

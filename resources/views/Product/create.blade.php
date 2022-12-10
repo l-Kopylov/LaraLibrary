@@ -25,7 +25,7 @@
     <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
         <div class="row">
-            <form action="{{route('product.store')}}" method="post">
+            <form action="{{route('product.store')}}" method="post" enctype="multipart/form-data">
                   @csrf
 
                   <div class="form-group">
@@ -45,9 +45,54 @@
                   <div class="form-group">
                       <input type="text" name="title" class="form-control" placeholder="наименование">
                   </div>
-
-
-
+                  <div class="form-group">
+                    <label for="exampleInputFile">файл</label>
+                    <div class="input-group">
+                      <div class="custom-file">
+                        <input name="preview_image" type="file" class="custom-file-input" id="exampleInputFile">
+                        <label class="custom-file-label" for="exampleInputFile">выберите файл</label>
+                      </div>
+                      <div class="input-group-append">
+                        <span class="input-group-text">загрузить</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                  <label>категории</label>
+                  <select class="form-control select2" name="category_id" style="width: 100%;">
+                    <option selected="selected" disabled>выберите категорию</option>
+                    <option value="1">Alaska</option>
+                    <option value="2">California</option>
+                    <option value="3">Delaware</option>
+                    <option value="4">Tennessee</option>
+                    <option value="5">Texas</option>
+                    <option value="6">Washington</option>
+                  </select>
+                </div>
+                  <div class="form-group">
+                  <label>теги</label>
+                  <select class="tags" name="tags[]" multiple="multiple" data-placeholder="выберите тег" style="width: 100%;">
+                    <option value="1">Alabama</option>
+                    <option value="2">Alaska</option>
+                    <option value="3">California</option>
+                    <option value="4">Delaware</option>
+                    <option value="5">Tennessee</option>
+                    <option value="6">Texas</option>
+                    <option value="7">Washington</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label>цвета</label>
+                  <select class="colors" name="colors[]" multiple="multiple" data-placeholder="выберите цвет" style="width: 100%;">
+                    <option value="1">Alabama</option>
+                    <option value="2">Alaska</option>
+                    <option value="3">California</option>
+                    <option value="4">Delaware</option>
+                    <option value="5">Tennessee</option>
+                    <option value="6">Texas</option>
+                    <option value="7">Washington</option>
+                  </select>
+                </div>
 
                   <div class="form-group">
                       <input type="submit" class="btn btn-primary" value="добавить">
