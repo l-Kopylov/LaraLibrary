@@ -1,20 +1,20 @@
 <?php
 
-namespace App\Http\Controllers\Color;
+namespace App\Http\Controllers\Product;
 
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Color;
-use App\Http\Requests\Color\StoreRequest;
+use App\Models\Product;
+use App\Http\Requests\Product\StoreRequest;
 
 class StoreController extends Controller
 {
-    public function __invoke(StoreRequest $request)
+    public function __invoke(Product $product)
     {
         $data = $request->validated();
-        Color::firstOrCreate($data);
+        Product::firstOrCreate($data);
 
-        return redirect()->route('color.index');
+        return redirect()->route('product.index');
     }
 }

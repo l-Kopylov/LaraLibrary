@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Http\Controllers\Color;
+namespace App\Http\Controllers\Product;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Color;
+use App\Models\Product;
 
 class ShowController extends Controller
 {
-    public function __invoke(Color $color)
+    public function __invoke(Product $product)
     {
-     return view('color.show', compact('color'));
+     return view('product.show', compact('product'));
     }
 }

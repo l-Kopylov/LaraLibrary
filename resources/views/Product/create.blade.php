@@ -25,12 +25,30 @@
     <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
         <div class="row">
-            <form action="{{route('category.store')}}" method="post">
+            <form action="{{route('product.store')}}" method="post">
                   @csrf
 
                   <div class="form-group">
                       <input type="text" name="title" class="form-control" placeholder="наименование">
+                  </div>                  <div class="form-group">
+                      <input type="text" name="description" class="form-control" placeholder="описание">
                   </div>
+                  <div class="form-group">
+                    <textarea name="content"  cols="30" rows="10" class="form-control" placeholder="контент"></textarea>
+                  </div>
+                  <div class="form-group">
+                      <input type="text" name="price" class="form-control" placeholder="цена">
+                  </div>
+                  <div class="form-group">
+                      <input type="text" name="count" class="form-control" placeholder="количество">
+                  </div>
+                  <div class="form-group">
+                      <input type="text" name="title" class="form-control" placeholder="наименование">
+                  </div>
+
+
+
+
                   <div class="form-group">
                       <input type="submit" class="btn btn-primary" value="добавить">
                   </div>

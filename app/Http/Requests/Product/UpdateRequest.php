@@ -24,11 +24,8 @@ class UpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'       => 'required|string',
-            'surname'    => 'nullable|string',
-            'patronymic' => 'nullable|string',
-            'age'        => 'nullable|string',
-            'adress'     => 'nullable|string',
-            'gender'     => 'nullable|string',
+            'title' => 'required|string'
+
+        ];
     }
 }
