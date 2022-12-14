@@ -10,9 +10,10 @@ use App\Http\Requests\Product\StoreRequest;
 
 class StoreController extends Controller
 {
-    public function __invoke(Product $product)
+    public function __invoke(UpdateRequest $request)
     {
         $data = $request->validated();
+        dd($data);
         Product::firstOrCreate($data);
 
         return redirect()->route('product.index');
