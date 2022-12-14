@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\User;
+namespace App\Http\Requests\Product;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -27,7 +27,7 @@ class UpdateRequest extends FormRequest
             'title'         => 'required|string',
             'description'   => 'required',
             'content'       => 'required',
-            'prewiev_image' => 'required',
+            'prewiev_image' => 'nullable',
             'price'         => 'required',
             'count'         => 'required',
             'is_published'  => 'nullable',

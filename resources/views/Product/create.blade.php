@@ -49,7 +49,7 @@
                     <label for="exampleInputFile">файл</label>
                     <div class="input-group">
                       <div class="custom-file">
-                        <input name="preview_image" type="file" class="custom-file-input" id="exampleInputFile">
+                        <input name="prewiev_image" type="file" class="custom-file-input" id="exampleInputFile">
                         <label class="custom-file-label" for="exampleInputFile">выберите файл</label>
                       </div>
                       <div class="input-group-append">
@@ -61,36 +61,26 @@
                   <label>категории</label>
                   <select class="form-control select2" name="category_id" style="width: 100%;">
                     <option selected="selected" disabled>выберите категорию</option>
-                    <option value="1">Alaska</option>
-                    <option value="2">California</option>
-                    <option value="3">Delaware</option>
-                    <option value="4">Tennessee</option>
-                    <option value="5">Texas</option>
-                    <option value="6">Washington</option>
+                      @foreach($categories as $category)
+                          <option value="{{$category->id}}">{{$category->title}}</option>
+                      @endforeach  
                   </select>
                 </div>
                   <div class="form-group">
                   <label>теги</label>
                   <select class="tags" name="tags[]" multiple="multiple" data-placeholder="выберите тег" style="width: 100%;">
-                    <option value="1">Alabama</option>
-                    <option value="2">Alaska</option>
-                    <option value="3">California</option>
-                    <option value="4">Delaware</option>
-                    <option value="5">Tennessee</option>
-                    <option value="6">Texas</option>
-                    <option value="7">Washington</option>
+                      @foreach($tags as $tag)
+                          <option value="{{$tag->id}}">{{$tag->title}}</option>
+                      @endforeach    
+            
                   </select>
                 </div>
                 <div class="form-group">
                   <label>цвета</label>
                   <select class="colors" name="colors[]" multiple="multiple" data-placeholder="выберите цвет" style="width: 100%;">
-                    <option value="1">Alabama</option>
-                    <option value="2">Alaska</option>
-                    <option value="3">California</option>
-                    <option value="4">Delaware</option>
-                    <option value="5">Tennessee</option>
-                    <option value="6">Texas</option>
-                    <option value="7">Washington</option>
+                      @foreach($colors as $color)
+                          <option value="{{$color->id}}">{{$color->title}}</option>
+                      @endforeach  
                   </select>
                 </div>
 

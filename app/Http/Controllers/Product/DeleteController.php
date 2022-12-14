@@ -8,7 +8,7 @@ use App\Models\Product;
 
 class DeleteController extends Controller
 {
-    public function __invoke(Product $color)
+    public function __invoke(Product $product)
     {
         $product->delete();
 

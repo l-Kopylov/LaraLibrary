@@ -29,13 +29,13 @@
                 <div class="card">
                     <div class="card-header d-flex">
                         <div class="mr-3">
-                            <a href="{{route('category.edit', $category->id)}}"
+                            <a href="{{route('product.edit', $product->id)}}"
                                 class="btn btn-primary">редактировать</a>
                         </div>
                         <div div class="mr-3">
-                            <a href="{{route('category.index')}}" class="btn btn-info">вернуться в список</a>
+                            <a href="{{route('product.index')}}" class="btn btn-info">вернуться в список</a>
                         </div>
-                        <form action="{{route('category.delete', $category->id)}}" method="post">
+                        <form action="{{route('product.delete', $product->id)}}" method="post">
                             @csrf
                             @method('delete')
                             <input type="submit" class="btn btn-danger" value="удалить">
@@ -47,11 +47,11 @@
                             <tbody>
                                 <tr>
                                     <td>ID</td>
-                                    <td>{{$category->id}}</a></td>
+                                    <td>{{$product->id}}</a></td>
                                 </tr>
                                 <tr>
                                     <td>наименование</td>
-                                    <td>{{$category->title}}</a></td>
+                                    <td>{{$product->title}}</a></td>
                                 </tr>
                             </tbody>
                         </table>
