@@ -42,18 +42,35 @@
                         </form>
                     </div>
 
+                   
                     <div class="card-body table-responsive p-0">
-                        <table class="table table-hover text-nowrap">
+                        <table class="table table-hover table-bordered  text-nowrap">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Наименование</th>
+                                    <th>Описание</th>
+                                    <th>Контент</th>
+                                    <th>Цена</th>
+                                    <th>Кол-во</th>
+                                    <th>К-я</th>
+                                    <th>Создан</th>
+                                </tr>
+                            </thead>
                             <tbody>
                                 <tr>
-                                    <td>ID</td>
-                                    <td>{{$product->id}}</a></td>
+                                    <td>{{$product->id}}</td>
+                                    <td><a href="{{ route('product.show', $product->id) }}">{{$product->title}}</a></td>
+                                    <td>{{$product->description}}</td> 
+                                    <td>{{$product->content}}</td>
+                                    <td>{{$product->price}}</td>
+                                    <td>{{$product->count}}</td>
+                                    <td>{{$product->category_id}}</td>
+                                    <td>{{$product->created_at}}</td>
+                                    <td>{{$product->colors}}</td>
+                                 
                                 </tr>
-                                <tr>
-                                    <td>наименование</td>
-                                    <td>{{$product->title}}</a></td>
-                                </tr>
-                            </tbody>
+                            </tbody> 
                         </table>
                     </div>
 

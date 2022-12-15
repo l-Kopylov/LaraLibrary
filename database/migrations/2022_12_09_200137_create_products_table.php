@@ -25,7 +25,7 @@ class CreateProductsTable extends Migration
             $table->integer('count');
             $table->boolean('is_published')->default(true);
 
-            $table->foreignId('category_id')->nullable()->index()->constrained('categories');
+            $table->foreignId('category_id')->nullable()->index()->constrained('categories')->onDelete('cascade');
 
 
 

@@ -43,9 +43,6 @@
                       <input type="text" name="count" class="form-control" placeholder="количество">
                   </div>
                   <div class="form-group">
-                      <input type="text" name="title" class="form-control" placeholder="наименование">
-                  </div>
-                  <div class="form-group">
                     <label for="exampleInputFile">файл</label>
                     <div class="input-group">
                       <div class="custom-file">
