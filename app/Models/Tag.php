@@ -9,4 +9,10 @@ class Tag extends Model
 {
     Protected $table = 'tags';
     protected $guarded = false;
+
+    public function books()
+    {
+        return $this->belongsToMany(Book::class);
+    }
+
 }

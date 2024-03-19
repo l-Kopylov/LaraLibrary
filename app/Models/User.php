@@ -12,19 +12,6 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
-    // const GENDER_MALE = 1;
-    // const GENDER_FEMALE = 2;
-
-    // static function getGenders() {
-    //     return [
-    //         self::GENDER_MALE =>'мужской',
-    //         self::GENDER_FEMALE =>'женский',
-    //     ];
-    // }
-
-    // public function getGenderTitleAttribute() {
-    //     return self::getGenders()[$this->gender];
-    // }
 
     /**
      * The attributes that are mass assignable.
@@ -55,4 +42,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function books()
+    {
+        return $this->hasMany(Book::class);
+    }
 }

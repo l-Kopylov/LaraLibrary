@@ -1,30 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
+Route::get('/', \App\Http\Controllers\Main\IndexController::class)->name('base');
 
-Route::get('/', \App\Http\Controllers\Main\IndexController::class);
-
-
-Route::group(['prefix' => 'categories'], function() {
-    Route::get('/', App\Http\Controllers\Category\IndexController::class)->name('category.index');
-    Route::get('/create', App\Http\Controllers\Category\CreateController::class)->name('category.create');
-    Route::post('/', App\Http\Controllers\Category\StoreController::class)->name('category.store');
-    Route::get('/{category}/edit', App\Http\Controllers\Category\EditController::class)->name('category.edit');
-    Route::get('/{category}', App\Http\Controllers\Category\ShowController::class)->name('category.show');
-    Route::patch('/{category}', App\Http\Controllers\Category\UpdateController::class)->name('category.update');
-    Route::delete('/{category}', App\Http\Controllers\Category\DeleteController::class)->name('category.delete');
-});
-
-Route::group(['prefix' => 'colors'], function() {
-    Route::get('/', App\Http\Controllers\Color\IndexController::class)->name('color.index');
-    Route::get('/create', App\Http\Controllers\Color\CreateController::class)->name('color.create');
-    Route::post('/', App\Http\Controllers\Color\StoreController::class)->name('color.store');
-    Route::get('/{color}/edit', App\Http\Controllers\Color\EditController::class)->name('color.edit');
-    Route::get('/{color}', App\Http\Controllers\Color\ShowController::class)->name('color.show');
-    Route::patch('/{color}', App\Http\Controllers\Color\UpdateController::class)->name('color.update');
-    Route::delete('/{color}', App\Http\Controllers\Color\DeleteController::class)->name('color.delete');
-});
 
 Route::group(['prefix' => 'tags'], function() {
     Route::get('/', App\Http\Controllers\Tag\IndexController::class)->name('tag.index');
@@ -46,12 +26,17 @@ Route::group(['prefix' => 'users'], function() {
     Route::delete('/{user}', App\Http\Controllers\User\DeleteController::class)->name('user.delete');
 });
 
-Route::group(['prefix' => 'products'], function() {
-    Route::get('/', App\Http\Controllers\Product\IndexController::class)->name('product.index');
-    Route::get('/create', App\Http\Controllers\Product\CreateController::class)->name('product.create');
-    Route::post('/', App\Http\Controllers\Product\StoreController::class)->name('product.store');
-    Route::get('/{product}/edit', App\Http\Controllers\Product\EditController::class)->name('product.edit');
-    Route::get('/{product}', App\Http\Controllers\Product\ShowController::class)->name('product.show');
-    Route::patch('/{product}', App\Http\Controllers\Product\UpdateController::class)->name('product.update');
-    Route::delete('/{product}', App\Http\Controllers\Product\DeleteController::class)->name('product.delete');
+Route::group(['prefix' => 'books'], function() {
+    Route::get('/', App\Http\Controllers\Book\IndexController::class)->name('book.index');
+    Route::get('/create', App\Http\Controllers\Book\CreateController::class)->name('book.create');
+    Route::post('/', App\Http\Controllers\Book\StoreController::class)->name('book.store');
+    Route::get('/{book}/edit', App\Http\Controllers\Book\EditController::class)->name('book.edit')->middleware('auth','can:modify-post,book');
+    Route::get('/{book}', App\Http\Controllers\Book\ShowController::class)->name('book.show');
+    Route::patch('/{book}', App\Http\Controllers\Book\UpdateController::class)->name('book.update')->middleware('auth','can:modify-post,book');
+    Route::delete('/{book}', App\Http\Controllers\Book\DeleteController::class)->name('book.delete')->middleware('auth','can:modify-post,book');
+
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

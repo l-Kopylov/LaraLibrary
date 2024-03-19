@@ -16,9 +16,64 @@
   <!-- overlayScrollbars -->
   <link rel="stylesheet" href="{{asset('adminlte/plugins/overlayScrollbars/css/OverlayScrollbars.min.css')}}">
  
+  
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
-<div class="wrapper">adminlte/
+<div id="app">
+        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+            <div class="container">
+                <a class="navbar-brand" href="{{ url('/') }}">
+                    {{ config('app.name', 'Laravel') }}
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  
+                    <!-- Left Side Of Navbar -->
+                    <ul class="navbar-nav me-auto">
+
+                    </ul>
+
+                    <!-- Right Side Of Navbar -->
+                    <ul class="navbar-nav ms-auto">
+                        <!-- Authentication Links -->
+                        @guest
+                            @if (Route::has('login'))
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                </li>
+                            @endif
+
+                            @if (Route::has('register'))
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                </li>
+                            @endif
+                        @else
+
+                        <form action="{{ route('logout') }}" method="POST">
+                        @csrf
+                        <button type="submit">Logout</button>
+                        </form>
+
+
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ Auth::user()->name }}
+                                </a>
+                                </div>
+                            </li>
+                        @endguest
+                    </ul>
+                </div>
+                
+            </div>
+        </nav>
+    </div> 
+<div class="wrapper">Библиотека
 
   <!-- Preloader -->
   <div class="preloader flex-column justify-content-center align-items-center">
@@ -33,7 +88,7 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="index3.html" class="nav-link">Home</a>
+        <a href="{{route('base')}}" class="nav-link">Главная</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
         <a href="#" class="nav-link">Contact</a>
@@ -166,9 +221,9 @@
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
-      <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">AdminLTE 3</span>
+    <a href="#" class="brand-link">
+      <img src="#" alt="Admin Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+      <span class="brand-text font-weight-light">web</span>
     </a>
 
     <!-- Sidebar -->
@@ -199,58 +254,36 @@
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
         
-       
           <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-store"></i>
+            <a href="{{route('book.index')}}" class="nav-link">
+              <i class="nav-icon fa fa-book"></i>
               <p>
-                Заказы
+                Книги
               </p>
             </a>
           </li>
-          <li class="nav-item">
-            <a href="{{route('product.index')}}" class="nav-link">
-              <i class="nav-icon fas fa-scroll"></i>
-              <p>
-                Продукты
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="{{route('category.index')}}" class="nav-link">
-              <i class="nav-icon far fa-file-alt"></i>
-              <p>
-                Категории
-              </p>
-            </a>
-          </li>
+
           <li class="nav-item">
             <a href="{{route('tag.index')}}" class="nav-link">
-              <i class="nav-icon fas fa-tags"></i>  
+              <i class="nav-icon fa fa-chart-bar"></i>  
               <p>
-                Теги
+                Рубрики
               </p>
             </a>
           </li>
-          <li class="nav-item">
-            <a href="{{route('color.index')}}" class="nav-link">
-              <i class="nav-icon fas fa-paint-roller"></i>  <i class=""></i>
-              <p>
-                Цвета
-              </p>
-            </a>
-          </li>
+
           <li class="nav-item">
             <a href="{{route('user.index')}}" class="nav-link">
               <i class="nav-icon fas fa-user"></i> 
               <p>
-                Пользователи
+                Авторы
               </p>
             </a>
           </li>
           
         </ul>
       </nav>
+      </div>
       <!-- /.sidebar-menu -->
     </div>
     <!-- /.sidebar -->
@@ -262,7 +295,7 @@
   </div>
   <!-- /.content-wrapper -->
   <footer class="main-footer">
-    <strong>Copyright &copy; 2022 <a href="#">Instore</a>.</strong>
+    <strong>Copyright &copy; 2024 <a href="#">Kopylov</a>.</strong>
     Все права защищены
     <div class="float-right d-none d-sm-inline-block">
       <b>Version</b> 1.0.0

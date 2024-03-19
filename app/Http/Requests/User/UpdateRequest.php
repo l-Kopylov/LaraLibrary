@@ -28,8 +28,10 @@ class UpdateRequest extends FormRequest
             'surname'    => 'nullable|string',
             'patronymic' => 'nullable|string',
             'age'        => 'nullable|string',
-            'adress'     => 'nullable|string',
-            'gender'     => 'nullable|string',
-        ]
+            'password'     => 'nullable|string',
+            'password_confirmation'     => 'nullable|string',
+
+
+        ];
     }
 }
