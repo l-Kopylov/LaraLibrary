@@ -27,19 +27,22 @@
         <div class="row">
             <div class="col-12">
                 <div class="card">
-                    <div class="card-header d-flex">
-                      <div class="mr-3">
-                        <a href="{{route('tag.edit', $tag->id)}}" class="btn btn-primary">редактировать</a>
-                      </div>
-                      <div div class="mr-3">
-                            <a href="{{route('tag.index')}}" class="btn btn-info">вернуться в список</a>
+                <div class="card-header d-flex">
+                    @can('access-route', $tag)
+                        <form action="{{route('tag.delete', $tag->id)}}" method="post">
+                            @csrf
+                            @method('delete')
+                            <input type="submit" class="btn btn-danger" value="удалить">
+                        </form>
+                        <div class="mr-3">
+                            <a href="{{route('tag.edit', $tag->id)}}"
+                                class="btn btn-primary">редактировать</a>
                         </div>
-                      <form action="{{route('tag.delete', $tag->id)}}" method="post">
-                        @csrf
-                        @method('delete')
-                        <input type="submit" class="btn btn-danger" value="удалить">
-                      </form>
+                    @endcan  
+                    <div div class="mr-3">
+                            <a href="{{route('tag.index')}}" class="btn btn-info">вернуться в список</a>
                     </div>
+                    </div> 
 
                     <div class="card-body table-responsive p-0">
                         <table class="table table-hover text-nowrap">
